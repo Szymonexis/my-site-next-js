@@ -1,15 +1,14 @@
 import { FC } from 'react';
-import { button as StyledButton } from './button.styles';
+import styles from './button.component.module.scss';
 
 export interface ButtonProps {
 	text: string;
-	inverted?: boolean;
 }
 
 export const Button: FC<ButtonProps> = ({ text }) => {
 	return (
 		<>
-			<StyledButton>{text}</StyledButton>
+			<button className={styles.button}>{text.toUpperCase()}</button>
 		</>
 	);
 };
