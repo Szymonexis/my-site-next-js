@@ -1,5 +1,41 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
+import styles from './intro-text.component.module.scss';
 
-export const IntroText: FC = () => {
-	return <></>;
+export interface IntroTextProps {
+	text: string;
+	animated?: string;
+	noOut?: boolean;
+}
+
+export const IntroText: FC<IntroTextProps> = ({ text, animated, noOut }) => {
+	const [isIn, setIsIn] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setIsIn(true);
+		}, 1000);
+
+		if (noOut) {
+			return;
+		}
+
+		setTimeout(() => {
+			setIsIn(false);
+		}, 3000);
+	});
+
+	return (
+		<>
+			<div
+				className={`${styles['big-text']} ${
+					isIn ? styles['big-text--in'] : styles['big-text--out']
+				}`}
+			>
+				<div>{text}</div>
+				{animated && (
+					<div className={styles['big-text__animated']}>{animated}</div>
+				)}
+			</div>
+		</>
+	);
 };
