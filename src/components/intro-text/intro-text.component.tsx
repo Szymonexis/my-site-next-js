@@ -4,10 +4,14 @@ import styles from './intro-text.component.module.scss';
 export interface IntroTextProps {
 	text: string;
 	animated?: string;
-	noOut?: boolean;
+	noOutAnimation?: boolean;
 }
 
-export const IntroText: FC<IntroTextProps> = ({ text, animated, noOut }) => {
+export const IntroText: FC<IntroTextProps> = ({
+	text,
+	animated,
+	noOutAnimation,
+}) => {
 	const [isIn, setIsIn] = useState(false);
 
 	useEffect(() => {
@@ -15,7 +19,7 @@ export const IntroText: FC<IntroTextProps> = ({ text, animated, noOut }) => {
 			setIsIn(true);
 		}, 1000);
 
-		if (noOut) {
+		if (noOutAnimation) {
 			return;
 		}
 

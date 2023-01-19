@@ -25,20 +25,20 @@ export default function Intro() {
 			{index === 0 && (
 				<IntroText
 					text={texts[index].normal}
-					animated={texts[index].animated}
+					animated={texts[index]?.animated}
 				></IntroText>
 			)}
 			{index === 1 && (
 				<IntroText
 					text={texts[index].normal}
-					animated={texts[index].animated}
+					animated={texts[index]?.animated}
 				></IntroText>
 			)}
 			{index === 2 && (
 				<IntroText
 					text={texts[index].normal}
-					animated={texts[index].animated}
-					noOut
+					animated={texts[index]?.animated}
+					noOutAnimation
 				></IntroText>
 			)}
 		</>
